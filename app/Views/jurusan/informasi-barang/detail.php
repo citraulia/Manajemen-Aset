@@ -22,7 +22,7 @@ $lokasi = $lokasiBarang->where(['lokasi_kode' => $informasiBarang['lokasi_fk']])
 } else if ($informasiBarang['barang_status'] == 3) {
     $status = 'PENDING';
 } else if ($informasiBarang['barang_status'] == 4) {
-    $status = 'SEDANG PERBAIKAN';
+    $status = 'RUSAK';
 }
 ?>
 <!-- Get nama Barang Status selesai -->

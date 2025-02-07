@@ -28,7 +28,7 @@ $bgClass = (strpos($url, 'jurusanlogin') !== false) ? 'bg-jurusan' : 'bg-peminja
         <div id="layoutAuthentication_footer">
             <footer class="py-2 bg-light mt-5">
                 <div class="container-fluid">
-                    <div class="text-center text-muted small">Copyright &copy; Akbar Hidayatullah Harahap 2020</div>
+                    <div class="text-center text-muted small">Copyright &copy; Akbar Hidayatullah Harahap & Citra Aulia 2025</div>
                 </div>
             </footer>
         </div>

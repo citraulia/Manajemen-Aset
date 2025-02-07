@@ -8,7 +8,7 @@
 } else if ($informasiBarang['barang_status'] == 3) {
     $status = 'PENDING';
 } else if ($informasiBarang['barang_status'] == 4) {
-    $status = 'SEDANG PERBAIKAN';
+    $status = 'RUSAK';
 }
 ?>
 <!-- Get nama Barang Status selesai -->
@@ -125,15 +125,14 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dipinjamkan">Apakah Barang Boleh Dipinjamkan?</label>
-                            <?php if ($informasiBarang['barang_status'] == 1) : ?>
+                            <?php if ($informasiBarang['barang_keadaan'] == 'RUSAK') : ?>
+                                <input type="text" class="form-control" id="dipinjamkan" name="dipinjamkan" style="font-weight: bold;" value="TIDAK DIPINJAMKAN" readonly />
+                            <?php else : ?>
                                 <select class="custom-select form-control <?= ($validation->hasError('dipinjamkan')) ? 'is-invalid' : ''; ?>" id="dipinjamkan" name="dipinjamkan">
                                     <option <?= ($informasiBarang['barang_dipinjamkan'] == '0') ? 'selected' : ''; ?> value="0">Tidak Dipinjamkan</option>
                                     <option <?= ($informasiBarang['barang_dipinjamkan'] == '1') ? 'selected' : ''; ?> value="1">Boleh Dipinjamkan</option>
                                 </select>
-                            <?php else: ?>
-                                <input type="text" class="form-control" id="dipinjamkan" name="dipinjamkan" style="font-weight: bold;" value="TIDAK DIPINJAMKAN" readonly />
                             <?php endif; ?>
-
                             <div id="dipinjamkanFeedback" class="invalid-feedback">
                                 <?= $validation->getError('dipinjamkan'); ?>
                             </div>
@@ -157,5 +156,45 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const keadaanDropdown = document.getElementById("keadaan");
+            const dipinjamkanDropdown = document.getElementById("dipinjamkan");
+
+            // Fungsi untuk memperbarui opsi "dipinjamkan" berdasarkan "keadaan"
+            function updateDipinjamkanOptions() {
+                const selectedKeadaan = keadaanDropdown.value;
+
+                // Hapus semua opsi pada dropdown "dipinjamkan"
+                while (dipinjamkanDropdown.options.length > 0) {
+                    dipinjamkanDropdown.remove(0);
+                }
+
+                if (selectedKeadaan === "RUSAK") {
+                    // Tambahkan hanya opsi "Tidak Dipinjamkan" jika keadaan adalah "RUSAK"
+                    const option = document.createElement("option");
+                    option.value = "0";
+                    option.text = "Tidak Dipinjamkan";
+                    dipinjamkanDropdown.add(option);
+                } else if (selectedKeadaan === "BAIK") {
+                    // Tambahkan kembali opsi "Tidak Dipinjamkan" dan "Boleh Dipinjamkan" jika keadaan adalah "BAIK"
+                    const option1 = document.createElement("option");
+                    option1.value = "0";
+                    option1.text = "Tidak Dipinjamkan";
+                    dipinjamkanDropdown.add(option1);
+
+                    const option2 = document.createElement("option");
+                    option2.value = "1";
+                    option2.text = "Boleh Dipinjamkan";
+                    dipinjamkanDropdown.add(option2);
+                }
+            }
+
+            // Jalankan fungsi untuk pertama kali
+            updateDipinjamkanOptions();
+            // Setiap kali dropdown keadaan berubah, perbarui opsi dipinjamkan
+            keadaanDropdown.addEventListener("change", updateDipinjamkanOptions);
+        });
+    </script>
 </main>
 <?= $this->endSection('content'); ?>

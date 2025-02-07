@@ -160,7 +160,7 @@ function getBarang($kode)
                                                     <div class="btn-group btn-block">
                                                         <a href="<?= base_url('jurusan/informasibarang/' . $barangPinjaman['barang_kode']); ?>" class="btn btn-info">Detail</a>
                                                     </div>
-                                                    <?php if ($barang['status_barang'] == 2 && allow('1')): ?>
+                                                    <?php if ($barang['status_barang'] == 2 && (allow('1') || allow('2'))): ?>
                                                         <form action="<?= base_url('jurusan/riwayatpeminjamanbarang/tolakBarang'); ?>" method="POST">
                                                             <div class="btn-group btn-block">
                                                                 <input type="hidden" name="transaksi_id" value="<?= $transaksiPeminjaman['transaksi_id']; ?>">

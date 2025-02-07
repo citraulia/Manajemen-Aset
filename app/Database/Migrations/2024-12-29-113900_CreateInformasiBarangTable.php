@@ -60,7 +60,7 @@ class CreateInformasiBarangTable extends Migration
                 'type'       => 'SMALLINT',
                 'constraint' => 1,
                 'default'    => 1,
-                'comment'    => "'0' = Dihapus, '1' = Active, '2' = Sedang Dipinjam, '3' = Pending, '4' = Sedang Perbaikan",
+                'comment'    => "'0' = Dihapus, '1' = Active, '2' = Sedang Dipinjam, '3' = Pending, '4' = Rusak",
             ],
             'barang_dipinjamkan' => [
                 'type'       => 'SMALLINT',

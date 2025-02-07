@@ -118,13 +118,13 @@
                                         <?php if ($barang['barang_status'] == 1) {
                                             echo 'bg-success';
                                         } else if ($barang['barang_status'] == 0) {
-                                            echo 'bg-secondary'; // Tidak akan ditampilkan karena disembunyikan
+                                            echo 'bg-secondary';
                                         } else if ($barang['barang_status'] == 2) {
                                             echo 'bg-warning';
                                         } else if ($barang['barang_status'] == 3) {
-                                            echo 'bg-primary'; // Pending
+                                            echo 'bg-primary';
                                         } else if ($barang['barang_status'] == 4) {
-                                            echo 'bg-danger'; // Sedang Perbaikan
+                                            echo 'bg-danger';
                                         } ?>
                                     ">
                                         <?php if ($barang['barang_status'] == 1) {
@@ -136,7 +136,7 @@
                                         } else if ($barang['barang_status'] == 3) {
                                             echo '<b>PENDING</b>';
                                         } else if ($barang['barang_status'] == 4) {
-                                            echo '<b>SEDANG PERBAIKAN</b>';
+                                            echo '<b>RUSAK</b>';
                                         } ?>
                                     </td>
                                     <td>
