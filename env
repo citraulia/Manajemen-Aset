@@ -20,10 +20,20 @@ CI_ENVIRONMENT = production
 # APP
 #--------------------------------------------------------------------
 
-# app.baseURL = ''
+app.baseURL = 'https://aset.informatika.digital'
 # If you have trouble with `.`, you could also use `_`.
-# app_baseURL = ''
-# app.forceGlobalSecureRequests = false
+# app_baseURL = 'https://aset.informatika.digital'
+app.forceGlobalSecureRequests = true
+
+app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
+app.sessionCookieName = 'ci_session'
+app.sessionSavePath = 'writable/session'
+# app.sessionExpiration = 7200
+# app.sessionSavePath = null
+# app.sessionMatchIP = false
+# app.sessionTimeToUpdate = 300
+# app.sessionRegenerateDestroy = false
+
 # app.CSPEnabled = false
 
 #--------------------------------------------------------------------
@@ -31,9 +41,9 @@ CI_ENVIRONMENT = production
 #--------------------------------------------------------------------
 
 database.default.hostname = db
-database.default.database = inventarisasi_db
-database.default.username = user
-database.default.password = password
+database.default.database = aset_db
+database.default.username = aset-user
+database.default.password = aset-password
 database.default.DBDriver = Postgre
 database.default.port = 5432
 # database.default.DBPrefix =
@@ -61,6 +71,19 @@ database.default.port = 5432
 
 # session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
 # session.savePath = null
+
+#--------------------------------------------------------------------
+# SECURITY
+#--------------------------------------------------------------------
+
+security.csrfProtection = 'cookie'
+security.tokenName = 'csrf_token_name'
+# security.headerName = 'X-CSRF-TOKEN'
+security.cookieName = 'csrf_cookie_name'
+security.expires = 7200
+security.regenerate = true
+security.redirect = true
+security.samesite = 'Lax'
 
 #--------------------------------------------------------------------
 # LOGGER
