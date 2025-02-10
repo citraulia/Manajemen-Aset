@@ -34,7 +34,7 @@ class RiwayatPenambahanAkunPeminjam extends BaseController
     {
         $this->userPeminjamModel->update($id, ['peminjam_status' => 1]);
 
-        session()->setFlashdata('pesan', 'Peminjam berhasil disetujui.');
+        session()->setFlashdata('pesan', 'Pengajuan penambahan akun peminjam berhasil disetujui.');
         return redirect()->to('/jurusan/penambahan-peminjam');
     }
 
@@ -42,7 +42,7 @@ class RiwayatPenambahanAkunPeminjam extends BaseController
     {
         $this->userPeminjamModel->update($id, ['peminjam_status' => 0]);
 
-        session()->setFlashdata('pesan', 'Peminjam ditolak.');
+        session()->setFlashdata('pesan', 'Pengajuan penambahan akun peminjam ditolak.');
         return redirect()->to('/jurusan/penambahan-peminjam');
     }
 }

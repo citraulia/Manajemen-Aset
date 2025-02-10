@@ -74,7 +74,7 @@ class RiwayatPeminjamanBarang extends BaseController
 
         $this->updateTransaksiStatus($id);
 
-        session()->setFlashdata('pesan', "Barang yang belum ditolak berhasil disetujui.");
+        session()->setFlashdata('pesan', "Barang pending berhasil disetujui.");
         return redirect()->to("jurusan/peminjaman");
     }
 
@@ -102,7 +102,7 @@ class RiwayatPeminjamanBarang extends BaseController
     
         $this->updateTransaksiStatus($id);
     
-        session()->setFlashdata('pesan', "Barang yang belum disetujui berhasil ditolak.");
+        session()->setFlashdata('pesan', "Barang pending berhasil ditolak.");
         return redirect()->to("jurusan/peminjaman");
     }    
 

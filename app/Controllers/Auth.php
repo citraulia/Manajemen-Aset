@@ -36,7 +36,7 @@ class Auth extends BaseController
                 return redirect()->to("/login");
             } elseif ($row->peminjam_status == 0) {
                 // Jika status ditolak (inactive), beri pesan
-                session()->setFlashdata('gagal', 'Pengajuan Akun Ditolak.');
+                session()->setFlashdata('gagal', 'Pengajuan pembuatan akun ditolak.');
                 return redirect()->to("/login");
             }
 
