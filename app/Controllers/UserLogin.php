@@ -18,7 +18,7 @@ class UserLogin extends BaseController
         $userPeminjam = $this->userPeminjamModel->where('peminjam_status', 1)->findAll();
 
         $data = [
-            'title' => 'LogIn Sebagai Peminjam',
+            'title' => 'Login Sebagai Peminjam',
             'background' => 'primary',
             'userPeminjam' => $userPeminjam,
         ];
@@ -96,7 +96,7 @@ class UserLogin extends BaseController
     public function jurusanLogin()
     {
         $data = [
-            'title' => 'LogIn Sebagai Admin',
+            'title' => 'Login Sebagai Admin',
             'background' => 'info'
         ];
 

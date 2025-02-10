@@ -161,6 +161,9 @@ function getBarang($kode)
                                                         <a href="<?= base_url('jurusan/informasibarang/' . $barangPinjaman['barang_kode']); ?>" class="btn btn-info">Detail</a>
                                                     </div>
                                                     <?php if ($barang['status_barang'] == 2 && (allow('1') || allow('2'))): ?>
+                                                        <form id="hiddenForm" action="<?= base_url('jurusan/peminjaman/2'); ?>" method="get" style="display: none;">
+                                                            <!-- saya sengaja nambahin form kosong di sini, soalnya setiap tombol form yang disimpan di urutan pertama (baik itu tolak atau setujui), tombol tersebut jadi ga jalan -->
+                                                        </form>
                                                         <form action="<?= base_url('jurusan/riwayatpeminjamanbarang/tolakBarang'); ?>" method="POST">
                                                             <div class="btn-group btn-block">
                                                                 <input type="hidden" name="transaksi_id" value="<?= $transaksiPeminjaman['transaksi_id']; ?>">
